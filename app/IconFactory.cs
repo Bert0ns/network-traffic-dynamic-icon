@@ -2,7 +2,7 @@
 using System.Drawing.Text;
 
 
-namespace network_traffic_dynamic_icon
+namespace network_traffic_dynamic_icon.app
 {
     public static class IconFactory
     {
@@ -26,7 +26,7 @@ namespace network_traffic_dynamic_icon
             g.DrawString(u, font, brushUp, new PointF(0, 14));
 
             // Converte in icona
-            IntPtr hIcon = bmp.GetHicon();
+            nint hIcon = bmp.GetHicon();
             return Icon.FromHandle(hIcon);
         }
 

@@ -1,7 +1,7 @@
 ﻿using System.Net.NetworkInformation;
 
 
-namespace network_traffic_dynamic_icon
+namespace network_traffic_dynamic_icon.app
 {
     public class NetworkMonitor
     {

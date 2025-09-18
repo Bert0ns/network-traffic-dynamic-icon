@@ -8,6 +8,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
+
+	<Version>1.0.0</Version>
+	<Company>BertoSoft</Company>
+	<Product>Network Traffic Dynamic Icon</Product>
+	<Description>Tray app per to monitor network traffic Down/Up.</Description>
   </PropertyGroup>
 
   <ItemGroup>

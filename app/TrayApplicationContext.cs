@@ -2,7 +2,7 @@
 using Timer = System.Windows.Forms.Timer;
 
 
-namespace network_traffic_dynamic_icon
+namespace network_traffic_dynamic_icon.app
 {
     public class TrayApplicationContext : ApplicationContext
     {
@@ -30,8 +30,28 @@ namespace network_traffic_dynamic_icon
             menu.Items.Add(new ToolStripSeparator());
             menu.Items.Add("Esci", null, (_, _) => ExitApplication());
 
-            _notifyIcon.ContextMenuStrip = menu;
 
+            var autoStartItem = new ToolStripMenuItem("Avvio automatico all'accesso")
+            {
+                Checked = AutoStartManager.IsEnabled()
+            };
+            autoStartItem.Click += (_, _) =>
+            {
+                if (AutoStartManager.IsEnabled())
+                {
+                    AutoStartManager.Disable();
+                    autoStartItem.Checked = false;
+                }
+                else
+                {
+                    AutoStartManager.Enable();
+                    autoStartItem.Checked = true;
+                }
+            };
+            menu.Items.Insert(1, autoStartItem);
+
+
+            _notifyIcon.ContextMenuStrip = menu;
             BuildInterfaceMenu(menu); // Popola interfacce
 
             // Timer UI (WinForms) ogni 1000 ms

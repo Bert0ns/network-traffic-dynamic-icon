@@ -1,4 +1,5 @@
-namespace network_traffic_dynamic_icon
+
+namespace network_traffic_dynamic_icon.app
 {
     internal static class Program
     {
