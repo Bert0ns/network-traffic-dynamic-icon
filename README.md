@@ -76,7 +76,6 @@ Result:
 
 ## Limitations
 
-- Uses IPv4 stats (`GetIPv4Statistics`); IPv6 traffic not fully counted.
 - Instantaneous values can fluctuate (no smoothing yet).
 - Tiny icon = very compact numbers.
 - No historical graphs (future possibility).
