@@ -12,7 +12,8 @@ namespace network_traffic_dynamic_icon.app
 
         public void ResetForInterface(NetworkInterface nic)
         {
-            var stats = nic.GetIPv4Statistics();
+            // Usa le statistiche IP generiche (IPv4 + IPv6) invece delle sole IPv4
+            var stats = nic.GetIPStatistics();
             _prevBytesReceived = stats.BytesReceived;
             _prevBytesSent = stats.BytesSent;
             _prevTime = DateTime.UtcNow;
@@ -27,7 +28,7 @@ namespace network_traffic_dynamic_icon.app
                 return (0, 0);
             }
 
-            var stats = nic.GetIPv4Statistics();
+            var stats = nic.GetIPStatistics(); // include traffico IPv4 + IPv6
             var now = DateTime.UtcNow;
             double seconds = (now - _prevTime).TotalSeconds;
             if (seconds <= 0) return (0, 0);
